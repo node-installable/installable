@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var version = require('./../package').version;
+var cli = require('./../lib/cli');
+
+program.version(version);
+
+program
+    .command('plugin <plugin-name> <application-name>')
+        .description('Create new plugin')
+        .action(cli.createPlugin);
+
+program
+    .command('app <application-name>')
+        .description('Create new application')
+        .action(cli.createApp);
+
+program
+    .command('run <application-name>')
+        .description('Run application')
+        .action(cli.runApp);
+
+program.parse(process.argv);

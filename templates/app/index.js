@@ -1,0 +1,1 @@
+module.exports = require('hapi').createServer('localhost', process.env.PORT || 3000);

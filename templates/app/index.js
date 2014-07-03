@@ -1,1 +1,3 @@
-module.exports = require('hapi').createServer('localhost', process.env.PORT || 3000);
+'use strict';
+exports.server = require('./config/server');
+exports.routes = require('./config/routes');

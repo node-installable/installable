@@ -1,5 +1,4 @@
 'use strict';
-var hapi = require('hapi');
 
 var todos = [
     {
@@ -21,7 +20,7 @@ exports.index = function (request, reply) {
 exports.show = function (request, reply) {
     findTodo(parseInt(request.params.todoId, 10), function (err, todo) {
         if (err) {
-            return reply(err);
+            return reply({message: err}).code(404);
         }
         reply(todo);
     });
@@ -40,6 +39,6 @@ function findTodo (id, cb) {
     if (todo) {
         cb(null, todo);
     } else {
-        cb(hapi.error.notFound('Wrong id!'));
+        cb('Wrong id!');
     }
 }

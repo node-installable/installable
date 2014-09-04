@@ -18,9 +18,4 @@ program
         .description('Create new application')
         .action(cli.createApp);
 
-program
-    .command('run <application-name>')
-        .description('Run application')
-        .action(cli.runApp);
-
 program.parse(process.argv);

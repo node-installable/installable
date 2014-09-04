@@ -22,7 +22,7 @@
     "matchdep": "^0.3.0",
     "mkdirp": "^0.5.0",
     "ncp": "^0.5.1",
-    "npm": "^1.4.15"
+    "npm": "^1.4.25"
   },
   "devDependencies": {
     "gulp": "^3.8.0",

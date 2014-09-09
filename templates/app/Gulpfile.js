@@ -3,9 +3,7 @@
 var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     jshint = require('gulp-jshint'),
-    recess = require('gulp-recess'),
-    less = require('gulp-less'),
-    gutil = require('gulp-util'),
+    clean = require('gulp-clean'),
     webpack = require('gulp-webpack');
 
 gulp.task('lint', function () {
@@ -33,50 +31,45 @@ gulp.task('server-development', function () {
     });
 });
 
-gulp.task('less', function () {
-    var r = recess(),
-        l = less();
-
-    r.on('error', function (e) {
-        gutil.log(e.message);
-        r.end();
-    });
-
-    l.on('error', function (e) {
-        gutil.log(e.message);
-        l.end();
-    });
-
-    return gulp.src('./browser/styles/main.less')
-        .pipe(r)
-        .pipe(l)
-        .pipe(gulp.dest('./browser/build/'));
-});
-
 gulp.task('webpack', function() {
-  return gulp.src('./browser/scripts/main.js')
+  return gulp.src('./browser/main.js')
     .pipe(webpack({
         output: {
-            filename: 'main.js'
+            filename: 'build.js'
         }
     }))
     .pipe(gulp.dest('./browser/build/'));
 });
 
+gulp.task('copy-index', function () {
+    return gulp.src('./browser/index.html')
+        .pipe(gulp.dest('./browser/build/'));
+});
+
+gulp.task('clean', function () {
+    return gulp.src('./browser/build/*.*', {read: false})
+        .pipe(clean());
+});
+
 gulp.task('watch', function() {
+    // clean
+    gulp.start('clean');
+
     // lint
     gulp.watch(['./browser/**/*.js',
                 './server/**/*.js',
                 './specs/**/*.js',
                 './*.js'], ['lint']);
 
-    // less
-    gulp.watch('./browser/styles/**/*.less', ['less']);
-    gulp.start('less');
-
     // webpack
-    gulp.watch('./browser/scripts/**/*.js', ['webpack']);
+    gulp.watch(['./browser/**/*.js',
+                './browser/**/*.less',
+                '!./browser/build/*.js'], ['webpack']);
     gulp.start('webpack');
+
+    // index.html
+    gulp.watch('./browser/index.html', ['copy-index']);
+    gulp.start('copy-index');
 });
 
 

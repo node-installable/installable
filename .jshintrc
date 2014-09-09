@@ -24,7 +24,7 @@
     "maxdepth"      : false,    // {int} Max depth of nested blocks (within functions)
     "maxstatements" : false,    // {int} Max number statements per function
     "maxcomplexity" : 100,
-    "maxlen"        : 80,
+    "maxlen"        : 100,
 
     "browser"       : false,
     "devel"         : false,

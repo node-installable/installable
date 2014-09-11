@@ -32,13 +32,9 @@ gulp.task('server-development', function () {
 });
 
 gulp.task('webpack', function() {
-  return gulp.src('./browser/main.js')
-    .pipe(webpack({
-        output: {
-            filename: 'build.js'
-        }
-    }))
-    .pipe(gulp.dest('./browser/build/'));
+    return gulp.src('./browser/main.js')
+        .pipe(webpack(require('./webpack.config')))
+        .pipe(gulp.dest('./browser/build/'));
 });
 
 gulp.task('copy-index', function () {

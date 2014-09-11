@@ -1,7 +1,14 @@
 // webpack.config.js
 module.exports = {
-    entry: './browser/main.js',
+    entry: __dirname + '/browser/main.js',
     output: {
-        filename: './browser/build/build.js'
+        filename: 'build.js',
+        path: __dirname + '/browser/build',
+    },
+    module: {
+        loaders: [
+          { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+          { test: /\.(jpg|png|gif)$/, loader: 'file-loader' }
+        ],
     }
 };

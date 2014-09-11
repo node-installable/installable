@@ -1,10 +1,10 @@
 'use strict';
 var server = require('./config/server'),
     routes = require('./config/routes'),
-    pkg = require('./../package.json'),
+    path = require('path'),
     installable = require('installable');
 
 installable.startServer({
     server: server,
     routes: routes
-}, pkg);
+}, path.resolve('package.json'));

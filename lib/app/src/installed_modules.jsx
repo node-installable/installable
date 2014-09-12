@@ -14,11 +14,11 @@ var InstalledModules = React.createClass({
 
         if (rows.length) {
             return (
-                <section>{rows}</section>
+                <section className="installed-modules">{rows}</section>
             );
         } else {
             return (
-                <section>
+                <section className="installed-modules">
                     <p>No plugins are installed</p>
                 </section>
             );

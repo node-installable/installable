@@ -1,0 +1,18 @@
+button {
+    float: right;
+}
+
+input {
+    width: 100%;
+}
+
+.plugin-manager {
+    margin: 40px auto;
+    max-width: 400px;
+    background-color: #fafafa;
+    padding: 20px;
+}
+
+.search {
+    margin-top: 60px;
+}

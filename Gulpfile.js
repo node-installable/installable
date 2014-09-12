@@ -3,7 +3,9 @@ var gulp = require('gulp'),
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src(['lib/**/*.js',
+    return gulp.src(['lib/*.js',
+                    'lib/api/**/*.*',
+                    'lib/cli/**/*.*',
                     'templates/**/*.js',
                     'specs/**/*.js'])
         .pipe(jshint())
@@ -12,7 +14,9 @@ gulp.task('lint', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch(['lib/**/*.js',
+    gulp.watch(['lib/*.js',
+                'lib/api/**/*.*',
+                'lib/cli/**/*.*',
                 'templates/**/*.js',
                 'specs/**/*.js'], ['lint']);
 });

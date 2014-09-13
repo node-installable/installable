@@ -4,6 +4,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
   font-family: 'Open Sans', sans-serif;
+  color: rgb(160, 160, 160);
 }
 
 button {
@@ -19,6 +20,7 @@ input {
     padding: 4px;
     outline: none;
 }
+
 
 .plugin-manager {
     position: relative;
@@ -43,7 +45,7 @@ input {
         .plugin-manager header h3 {
             text-align: center;
             font-size: 16px;
-            color: rgb(80,80,80);
+            color: rgb(126, 126, 126);
         }
 
 

@@ -1,6 +1,6 @@
 {
   "name": "installable",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A framework for installable plugin based applications",
   "main": "index.js",
   "scripts": {

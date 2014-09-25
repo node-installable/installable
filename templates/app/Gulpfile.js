@@ -3,15 +3,15 @@
 var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     jshint = require('gulp-jshint'),
-    clean = require('gulp-clean'),
+    rimraf = require('gulp-rimraf'),
     webpack = require('gulp-webpack');
 
 gulp.task('lint', function () {
     gulp.src([
-            './browser/**/*.js',
+            './client/src/**/*.js',
+            './client/spec/**/*.js',
             './server/**/*.js',
-            './*.js',
-            '!./browser/build/**/*.js'
+            './*.js'
         ])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
@@ -19,11 +19,11 @@ gulp.task('lint', function () {
 
 gulp.task('server-development', function () {
     nodemon({
-        script: './server/index.js',
+        script: './server/src/index.js',
         ext: 'js',
         env: { 'NODE_ENV': 'development' },
         nodeArgs: ['--debug'],
-        ignore: ['browser/*'],
+        ignore: ['client/*', 'node_modules/*'],
     })
     .on('change', ['lint'])
     .on('restart', function () {
@@ -32,19 +32,19 @@ gulp.task('server-development', function () {
 });
 
 gulp.task('webpack', function() {
-    return gulp.src('./browser/main.js')
+    return gulp.src('./client/src/main.js')
         .pipe(webpack(require('./webpack.config')))
-        .pipe(gulp.dest('./browser/build/'));
+        .pipe(gulp.dest('./client/dist/'));
 });
 
 gulp.task('copy-index', function () {
-    return gulp.src('./browser/index.html')
-        .pipe(gulp.dest('./browser/build/'));
+    return gulp.src('./client/src/index.html')
+        .pipe(gulp.dest('./client/dist/'));
 });
 
 gulp.task('clean', function () {
-    return gulp.src('./browser/build/*.*', {read: false})
-        .pipe(clean());
+    return gulp.src('./client/dist/*.*', {read: false})
+        .pipe(rimraf());
 });
 
 gulp.task('watch', function() {
@@ -52,19 +52,17 @@ gulp.task('watch', function() {
     gulp.start('clean');
 
     // lint
-    gulp.watch(['./browser/**/*.js',
+    gulp.watch(['./client/src/*.js',
+                './client/spec/*.js',
                 './server/**/*.js',
-                './specs/**/*.js',
                 './*.js'], ['lint']);
 
     // webpack
-    gulp.watch(['./browser/**/*.js',
-                './browser/**/*.less',
-                '!./browser/build/*.js'], ['webpack']);
+    gulp.watch(['./client/src/**/*.*'], ['webpack']);
     gulp.start('webpack');
 
     // index.html
-    gulp.watch('./browser/index.html', ['copy-index']);
+    gulp.watch('./client/index.html', ['copy-index']);
     gulp.start('copy-index');
 });
 

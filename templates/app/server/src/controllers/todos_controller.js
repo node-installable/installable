@@ -1,5 +1,18 @@
 'use strict';
 
+exports.index = function (req, res) {
+    res.json(todos);
+};
+
+exports.show = function (req, res) {
+    findTodo(parseInt(req.params.id, 10), function (err, todo) {
+        if (err) {
+            return res.status(404).json({message: err});
+        }
+        res.json(todo);
+    });
+};
+
 var todos = [
     {
         id: 1,
@@ -12,20 +25,6 @@ var todos = [
         done: false
     }
 ];
-
-exports.index = function (request, reply) {
-    reply(todos);
-};
-
-exports.show = function (request, reply) {
-    findTodo(parseInt(request.params.todoId, 10), function (err, todo) {
-        if (err) {
-            return reply({message: err}).code(404);
-        }
-        reply(todo);
-    });
-};
-
 
 function findTodo (id, cb) {
     var todo;

@@ -1,6 +1,8 @@
 'use strict';
-var sample = require('./../controllers/sample_controller');
+var router = require('express').Router();
+var todos = require('./../controllers/todos_controller');
 
-module.exports = function (router) {
-    router.get('/sample', sample.index);
-};
+router.get('/todos', todos.index);
+router.get('/todos/:id', todos.show);
+
+module.exports = router;

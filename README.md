@@ -1,7 +1,7 @@
 Installable provides a base for downloading, installing and building modular software from npm repositories.
 
 It handles plugins that add code to the front end, back end or both and manages the installation process and the restart of the server.
-It is build around npm, express and webpack and focuses on Single Page Apps. 
+It is build around npm, express, webpack, gulp and focuses on Single Page Apps. 
 
 usage
 

@@ -1,10 +1,37 @@
 'use strict';
+var gulp = require('gulp');
+var nodemon = require('gulp-nodemon');
+var jshint = require('gulp-jshint');
+var rimraf = require('gulp-rimraf');
+var webpack = require('gulp-webpack');
+var karma = require('karma').server;
+var mocha = require('gulp-mocha');
 
-var gulp = require('gulp'),
-    nodemon = require('gulp-nodemon'),
-    jshint = require('gulp-jshint'),
-    rimraf = require('gulp-rimraf'),
-    webpack = require('gulp-webpack');
+gulp.task('server-spec', function () {
+    return gulp.src([
+            './server/**/*.js',
+        ], {read: false})
+        .pipe(mocha({reporter: 'spec'}));
+});
+
+/**
+ * Run test once and exit
+ */
+gulp.task('client-spec', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done);
+});
+
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('client-spec-watch', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js'
+    }, done);
+});
 
 gulp.task('lint', function () {
     gulp.src([
@@ -21,7 +48,7 @@ gulp.task('server-development', function () {
     nodemon({
         script: './server/src/index.js',
         ext: 'js',
-        env: { 'NODE_ENV': 'development' },
+        env: { 'NODE_ENV': 'development', 'PORT': 3001 },
         nodeArgs: ['--debug'],
         ignore: ['client/*', 'node_modules/*'],
     })
@@ -52,8 +79,8 @@ gulp.task('watch', function() {
     gulp.start('clean');
 
     // lint
-    gulp.watch(['./client/src/*.js',
-                './client/spec/*.js',
+    gulp.watch(['./client/src/**/*.js',
+                './client/spec/**/*.js',
                 './server/**/*.js',
                 './*.js'], ['lint']);
 
@@ -61,10 +88,22 @@ gulp.task('watch', function() {
     gulp.watch(['./client/src/**/*.*'], ['webpack']);
     gulp.start('webpack');
 
+
+
     // index.html
     gulp.watch('./client/index.html', ['copy-index']);
     gulp.start('copy-index');
 });
 
-
 gulp.task('default', ['watch', 'server-development']);
+
+gulp.task('tdd', function () {
+    gulp.start('watch');
+    gulp.start('server-development');
+    // client specs
+    gulp.watch(['./client/src/**/*.js',
+                './client/spec/**/*.js'],
+                ['client-spec-watch']);
+    // server specs
+    gulp.watch('./server/**/*.js', ['server-spec']);
+});

@@ -8,7 +8,7 @@ $.getJSON('/todos', function (data) {
     })).appendTo('body');
 });
 
-var App = require('./components/app');
+var App = require('./components/app/');
 
 var pluginRegistry = {
     add: function (plugin) {

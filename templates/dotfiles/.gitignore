@@ -1,4 +1,5 @@
 node_modules
+coverage
 .DS_Store
 client/dist
 npm-debug.log

@@ -1,9 +1,9 @@
 'use strict';
 
-require('./app.less');
+require('./index.less');
 
 var $ = require('jquery');
-var url = require('./app.jpg');
+var url = require('./lola.jpg');
 $('<img src="' + url + '">').appendTo('body');
 
 

@@ -3,19 +3,19 @@ var webpack = require('webpack');
 
 module.exports = {
     cache: true,
-    entry: __dirname + '/client/src/main.js',
-    output: {
-        filename: 'build.js',
-        path: __dirname + '/client/dist'
-    },
     module: {
-        loaders:[
+        loaders: [
             {test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader'},
             {test: /\.css$/, loader: 'style-loader!css-loader!autoprefixer-loader!'},
             {test: /\.(jpg|png|gif)$/, loader: 'file-loader'}
-        ]
+        ],
+        postLoaders: [{
+            test: /\.js$/,
+            exclude: /(spec|node_modules|bower_components)\//,
+            loader: 'istanbul-instrumenter'
+        }]
     },
-    plugins:[
+    plugins: [
         new webpack.optimize.DedupePlugin()
     ]
 };

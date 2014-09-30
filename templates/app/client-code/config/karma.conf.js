@@ -4,7 +4,7 @@ module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+        basePath: __dirname,
 
 
         // frameworks to use
@@ -14,7 +14,7 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'client/spec/**/*.js'
+            './../spec/**/*.js'
         ],
 
 
@@ -30,7 +30,7 @@ module.exports = function (config) {
 
         coverageReporter: {
             type: 'html',
-            dir: 'coverage/'
+            dir: './../../coverage/'
         },
 
 
@@ -63,8 +63,8 @@ module.exports = function (config) {
 
          // add webpack as preprocessor
         preprocessors: {
-            'client/spec/**/*.js': ['webpack'],
-            'client/src/**/*.js': ['coverage']
+            './../spec/**/*.js': ['webpack'],
+            './../src/**/*.js': ['coverage']
         },
 
         webpack: require('./webpack.test.config'),

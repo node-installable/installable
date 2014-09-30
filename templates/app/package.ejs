@@ -5,7 +5,7 @@
   "main": "./server/src/index.js",
   "scripts": {
     "start": "node ./server/src/index.js",
-    "test": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha server/spec/**/*.js && node_modules/karma/bin/karma start karma.conf"
+    "test": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha server/spec/**/*.js && node_modules/karma/bin/karma start client/config/karma.conf"
   },
   "license": "MIT",
   "dependencies": {
@@ -41,6 +41,7 @@
     "less": "^1.7.4",
     "less-loader": "^0.7.5",
     "mocha": "^1.21.4",
+    "require-dir": "^0.1.0",
     "style-loader": "^0.6.4",
     "supertest": "^0.13.0",
     "webpack": "^1.4.4",

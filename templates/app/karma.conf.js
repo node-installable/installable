@@ -1,5 +1,5 @@
 // Karma configuration
-module.exports = function(config) {
+module.exports = function (config) {
     'use strict';
     config.set({
 
@@ -14,7 +14,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-          'client/spec/**/*.js'
+            'client/spec/**/*.js'
         ],
 
 

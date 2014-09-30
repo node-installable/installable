@@ -5,11 +5,11 @@ module.exports = {
     cache: true,
     module: {
         loaders: [
-          { test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader' },
-          { test: /\.css$/, loader: 'style-loader!css-loader!autoprefixer-loader!' },
-          { test: /\.(jpg|png|gif)$/, loader: 'file-loader' }
+            {test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader'},
+            {test: /\.css$/, loader: 'style-loader!css-loader!autoprefixer-loader!'},
+            {test: /\.(jpg|png|gif)$/, loader: 'file-loader'}
         ],
-        postLoaders: [ {
+        postLoaders: [{
             test: /\.js$/,
             exclude: /(test|node_modules|bower_components)\//,
             loader: 'istanbul-instrumenter'

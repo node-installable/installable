@@ -1,14 +1,37 @@
-Installable provides a base for downloading, installing and building modular software from npm repositories.
+## Installable
+Installable provides a base for Javascript apps with a npm based plugin manager.
+It provides the conventions (and templates) for the apps and plugins and manages the installation process of the plugins.
 
-It handles plugins that add code to the front end, back end or both and manages the installation process and the restart of the server.
-It is build around npm, express, webpack, gulp and focuses on Single Page Apps. 
+Installable enforces some conventions. It requires [express](http://expressjs.com/) for the back end and [webpack](http://webpack.github.io/) for the front end.
+It uses [gulp](http://gulpjs.com/) as a task runner and focuses on Single Page Apps. 
 
-usage
 
-1. Start a new Installable application
+### Plugins
+Plugins are npm modules and can add functionality to both ends (front/back).
 
-installable app <application-name>
+The API that the plugins interact with the front end application is left to the author to define.
+
+In the backend the plugins can register scoped routes based on the plugin name.
+
+### Usage
+
+#### Create a new Installable application
+
+```
+$ installable app <application-name>
 // creates a skeleton for your app
+$ cd <application-name>
+$ npm install
+$ npm install -g gulp
+$ gulp
+```
 
-installable plugin <plugin-name> <application-name>
+#### Create a plugin for an Installable application
+
+```
+$ installable plugin <plugin-name> <application-name>
 // creates a skeleton for your plugin
+```
+
+
+Note: Installable has nothing to do with [Installable Web Apps](http://w3c-webmob.github.io/installable-webapps/)

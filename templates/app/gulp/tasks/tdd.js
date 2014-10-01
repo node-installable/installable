@@ -13,6 +13,5 @@ gulp.task('tdd', function () {
     files = files.concat(config.watch.commonSpecs);
     files = files.concat(config.watch.serverSpecs);
 
-    console.log('files', files);
     gulp.watch(files, ['server-common-spec']);
 });

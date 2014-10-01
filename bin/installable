@@ -6,16 +6,26 @@ var version = require('./../package').version;
 var cli = require('./../lib/cli');
 
 
-program.version(version);
+program
+    .version(version)
+    .option('-s, --skip-npm', 'Skip npm check for name');
 
 program
     .command('plugin <plugin-name> <application-name>')
         .description('Create new plugin')
-        .action(cli.createPlugin);
+        .action(function (pluginName, appName) {
+            cli.createPlugin(pluginName, appName, {
+                skipNpm: program.skipNpm
+            });
+        });
 
 program
     .command('app <application-name>')
         .description('Create new application')
-        .action(cli.createApp);
+        .action(function (appName) {
+            cli.createApp(appName, {
+                skipNpm: program.skipNpm
+            });
+        });
 
 program.parse(process.argv);

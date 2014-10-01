@@ -31,6 +31,8 @@
     "node"          : true,
 
     "globals"       : {
-        "module": true
+        "module": true,
+        "describe": true,
+        "it": true
     }
 }

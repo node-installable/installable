@@ -35,7 +35,8 @@ module.exports = {
         serverSpec + '/**/*.js',
         commonSrc + '/**/*.js',
         commonSpec + '/**/*.js',
-        './*.js'
+        './*.js',
+        './gulp/**/*.js'
     ],
     webpack: {
         main: clientSrc + '/main.js',
@@ -44,7 +45,7 @@ module.exports = {
     },
     specs: {
         server: serverSpec + '/**/*.js',
-        common: commonSpec + '/**/*.js',
+        common: commonSpec + '/**/*.js'
     },
     karma: {
         config: __dirname + '/../client/config/karma.conf.js'
@@ -55,14 +56,15 @@ module.exports = {
             'client/**',
             'node_modules/**',
             'server/spec/**',
-            'common/spec/**'
+            'common/spec/**',
+            'gulp/**'
         ]
     },
     watch: {
         webpack: [
             clientSrc + '/**/*.js',
             clientConfig + '/**/*.js',
-            commonSrc + '/**/*.js',
+            commonSrc + '/**/*.js'
         ],
         clientSpecs: [
             clientSrc + '/**/*.js',
@@ -72,11 +74,11 @@ module.exports = {
         ],
         commonSpecs: [
             commonSrc + '/**/*.js',
-            commonSpec + '/**/*.js',
+            commonSpec + '/**/*.js'
         ],
         serverSpecs: [
             serverSrc + '/**/*.js',
-            serverSpec + '/**/*.js',
+            serverSpec + '/**/*.js'
         ]
     }
 }

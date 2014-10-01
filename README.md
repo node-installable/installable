@@ -1,6 +1,6 @@
 ## Installable
 Installable provides a base for Javascript apps with a npm based plugin manager.
-It provides the conventions (and templates) for the apps and plugins and manages the installation process of the plugins.
+It provides the conventions (and templates) for the apps and plugins and manages the installation process of the plugins via an HTTP API.
 
 Installable enforces some conventions. It requires [express](http://expressjs.com/) for the back end and [webpack](http://webpack.github.io/) for the front end.
 It uses [gulp](http://gulpjs.com/) as a task runner and focuses on Single Page Apps. 
@@ -38,5 +38,6 @@ $ gulp // or gulp tdd
 
 
 ### Notes: 
-* Installable has nothing to do with [Installable Web Apps](http://w3c-webmob.github.io/installable-webapps/)
-* Installable is still a work in progress. Use with caution.
+* It has nothing to do with [Installable Web Apps](http://w3c-webmob.github.io/installable-webapps/)
+* It is still a work in progress. Use with caution.
+* It can be use as a boiler template app generator for express, webpack, gulp, mocha, karma and istanbul. Just remove the intallable dependency from the app template and start the express server yourself.

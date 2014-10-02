@@ -13,6 +13,27 @@ npm install -g installable
 
 ## Usage
 
+```
+$ installable -h
+
+Usage: installable [options] [command]
+
+  Commands:
+
+    plugin <plugin-name> <application-name>
+       Create new plugin
+
+    app <application-name>
+       Create new application
+
+
+  Options:
+
+    -h, --help      output usage information
+    -V, --version   output the version number
+    -s, --skip-npm  Skip npm check for name
+```
+
 #### Create a new Installable application
 
 ```

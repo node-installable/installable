@@ -19,7 +19,7 @@ Use `gulp tdd` if you want to develop and run specs on every file change
 Install node-inspector
 `npm install -g node-inspector`
 and from the root of the project's directory run 
-`gulp` or `gulp tdd` to start the server and all other watchers
+`node --debug server/src/`
 and then in another terminal again from the root directory of the project run
 `node-inspector`
 

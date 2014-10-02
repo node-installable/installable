@@ -9,7 +9,6 @@ gulp.task('nodemon', function () {
         script: config.nodemon.script,
         ext: 'js',
         env: { NODE_ENV: 'development', PORT: 3001 },
-        nodeArgs: ['--debug'],
         ignore: config.nodemon.ignore
     })
     .on('restart', function () {

@@ -66,7 +66,7 @@ In the backend the plugins can register scoped routes based on the plugin name a
 Visit `/installable` path on your app to use the default plugin manager. This is just an example implementation.
 
 ## Notes
-* This is still a work in progress. Use with caution.
+* This is still a work in progress (pre alpha) and currently lacks many must-have features for a complete plugin manager.
 * Use [npm link](https://www.npmjs.org/doc/cli/npm-link.html) for plugins that are not yet published on npm.
 * It can be used as a boiler template app generator for express, webpack, less, gulp, mocha, karma and istanbul. Just remove the installable dependency from the app template and start the express server yourself.
 * It has nothing to do with [Installable Web Apps](http://w3c-webmob.github.io/installable-webapps/)

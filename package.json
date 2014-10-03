@@ -30,9 +30,16 @@
     "webpack": "1.4.4"
   },
   "devDependencies": {
+    "chai": "^1.9.2",
     "gulp": "^3.8.0",
     "gulp-jscs": "^1.1.2",
-    "gulp-jshint": "^1.6.2"
+    "gulp-jshint": "^1.6.2",
+    "gulp-spawn-mocha": "^0.4.1",
+    "istanbul": "^0.3.2",
+    "mocha": "^1.21.4",
+    "request": "^2.44.0",
+    "sinon": "^1.10.3",
+    "sinon-chai": "^2.5.0"
   },
   "engines": {
     "node": ">=0.10 <0.12"

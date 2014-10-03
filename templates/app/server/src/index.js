@@ -13,7 +13,7 @@ app.set('port', process.env.PORT || 3000);
 installable.startServer(
     app,
     path.resolve(__dirname + './../../package.json'),
-    function (server) {
+    function (err, server) {
         console.log('Server listening on port: %s', server.address().port);
     }
 );

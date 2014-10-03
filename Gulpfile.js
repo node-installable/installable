@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
+var mocha = require('gulp-spawn-mocha');
 
 var files = [
     'lib/*.js',
@@ -8,26 +9,41 @@ var files = [
     'lib/cli/**/*.*',
     'lib/utils/**/*.js',
     'templates/**/*.js',
-    'specs/**/*.js'
+    'spec/**/*.js'
 ];
 
-// Lint Task
+var specs = [
+    'spec/**/*.js'
+];
+
 gulp.task('lint', function() {
     return gulp.src(files)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-// jscs Task
 gulp.task('jscs', function() {
     return gulp.src(files)
         .pipe(jscs());
 });
 
-// Watch Files For Changes
-gulp.task('watch', function() {
-    gulp.watch(files, ['lint', 'jscs']);
+gulp.task('spec', function () {
+    return gulp.src(specs, {read: false})
+    .pipe(mocha({
+        reporter: 'spec'
+    }));
 });
 
-// Default Task
+gulp.task('coverage', function () {
+    return gulp.src(specs, {read: false})
+    .pipe(mocha({
+        reporter: 'spec',
+        istanbul: true
+    }));
+});
+
+gulp.task('watch', function() {
+    gulp.watch(files, ['lint', 'jscs', 'spec']);
+});
+
 gulp.task('default', ['lint', 'jscs', 'watch']);

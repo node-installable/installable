@@ -1,5 +1,5 @@
 {
-  "name": "installable-manager",
+  "name": "installable-web-manager",
   "version": "0.0.1",
   "description": "A framework for installable plugin based applications",
   "scripts": {
@@ -10,7 +10,7 @@
     "apps",
     "installable"
   ],
-  "author": "Nikos Gereoudakis gereoudakis@gmail.com",
+  "author": "Nikos Gereoudakis <nikos@gereoudakis.me>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {

@@ -10,7 +10,6 @@ var installedModules = new models.Modules();
 var searchResults = new models.SearchModules();
 
 function render () {
-    console.log('rendered');
     React.renderComponent(
         <App installedModules={installedModules} searchResults={searchResults} />,
         document.getElementById('app')

@@ -52,7 +52,7 @@ describe('Installable', function () {
             expect(this.subject.pluginsRegExp.toString()).to.equal(/my-app-plugin-.+/.toString());
         });
 
-        it('should have a sockets empty array', function () {
+        it('should have an empty sockets array', function () {
             expect(this.subject.sockets).to.be.instanceOf(Array);
             expect(this.subject.sockets.length).to.be.equal(0);
         });

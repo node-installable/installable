@@ -10,7 +10,6 @@ var express = require('express');
 var request = require('request');
 
 var Installable = require('../../lib/installable');
-var EXIT_CODES = require('../../lib/exit_codes');
 
 describe('Installable', function () {
     before(function () {
@@ -117,12 +116,13 @@ describe('Installable', function () {
             this.subject.startServer(done);
         });
 
-        it('call process.exit with exit code restart', function (done) {
-            var spy = sinon.stub(process, 'exit', function () {});
+        it('sends a restart command to cluster\'s master', function (done) {
+            var spy = sinon.spy();
+            process.send = spy;
             this.subject.restartApplication();
 
             setTimeout(function () {
-                expect(spy).to.have.been.calledWith(EXIT_CODES.RESTART);
+                expect(spy).to.have.been.calledWith({command: 'restart'});
                 done();
             }, 0);
         });

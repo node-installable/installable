@@ -1,9 +1,11 @@
+'use strict';
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var mocha = require('gulp-spawn-mocha');
 
 var files = [
+    '*.js',
     'lib/*.js',
     'lib/api/**/*.*',
     'lib/cli/**/*.*',
@@ -17,13 +19,13 @@ var specs = [
     'spec/**/*.js'
 ];
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
     return gulp.src(files)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('jscs', function() {
+gulp.task('jscs', function () {
     return gulp.src(files)
         .pipe(jscs());
 });
@@ -43,7 +45,7 @@ gulp.task('coverage', function () {
     }));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(files, ['lint', 'jscs', 'spec']);
 });
 

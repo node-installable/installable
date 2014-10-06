@@ -92,7 +92,6 @@ describe('Installable', function () {
         });
     });
 
-
     describe('#stopServer', function () {
         beforeEach(function (done) {
             this.subject.startServer(done);
@@ -124,7 +123,7 @@ describe('Installable', function () {
             setTimeout(function () {
                 expect(spy).to.have.been.calledWith({command: 'restart'});
                 done();
-            }, 0);
+            }, 40);
         });
     });
 });

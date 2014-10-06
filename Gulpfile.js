@@ -8,6 +8,7 @@ var files = [
     'lib/api/**/*.*',
     'lib/cli/**/*.*',
     'lib/utils/**/*.js',
+    'lib/services/*.js',
     'templates/**/*.js',
     'spec/**/*.js'
 ];

@@ -102,16 +102,18 @@ describe('ModulesController', function () {
                     }, this.response);
                 });
 
-                it('should return {ok: true}', function () {
+                it('should return {ok: true}', function (done) {
                     setTimeout(function () {
                         expect(this.bodySpy).to.have.been.calledWith({ok: true});
-                    }.bind(this), 200);
+                        done();
+                    }.bind(this), 10);
                 });
 
-                it('should restartApplication', function () {
+                it('should restartApplication', function (done) {
                     setTimeout(function () {
-                        expect(this.restartSpy).to.have.been.calledOnce();
-                    }.bind(this), 200);
+                        expect(this.restartSpy).to.have.callCount(1);
+                        done();
+                    }.bind(this), 10);
                 });
             });
 
@@ -127,16 +129,18 @@ describe('ModulesController', function () {
                     }, this.response);
                 });
 
-                it('should return 500', function () {
+                it('should return 500', function (done) {
                     setTimeout(function () {
                         expect(this.statusSpy).to.have.been.calledWith(500);
-                    }, 200);
+                        done();
+                    }.bind(this), 10);
                 });
 
-                it('should return an error message', function () {
+                it('should return an error message', function (done) {
                     setTimeout(function () {
                         expect(this.bodySpy).to.have.been.calledWith({error: 'another error'});
-                    }, 200);
+                        done();
+                    }.bind(this), 10);
                 });
             });
         });

@@ -5,7 +5,8 @@ var jscs = require('gulp-jscs');
 var mocha = require('gulp-spawn-mocha');
 
 var files = [
-    '*.js',
+    'index.js',
+    'Gulpfile.js',
     'lib/*.js',
     'lib/api/**/*.*',
     'lib/cli/**/*.*',

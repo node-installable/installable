@@ -26,6 +26,7 @@
     "ncp": "^0.5.1",
     "npm": "^2.0.0",
     "npm-scrap": "0.0.4",
+    "installable-web-manager": "0.0.1",
     "webpack": "1.4.4"
   },
   "devDependencies": {

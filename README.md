@@ -1,4 +1,5 @@
 # Installable
+[![Build status](https://secure.travis-ci.org/node-installable/installable.svg?branch=master)](http://travis-ci.org/node-installable/installable)
 Installable provides a base for Javascript apps with a npm based plugin manager.
 It provides the conventions (and templates) for the apps and plugins and manages the installation process of the plugins via a HTTP API.
 

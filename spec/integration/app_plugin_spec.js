@@ -9,7 +9,7 @@ var request = require('request');
 var expect = require('chai').expect;
 
 // this takes about 2 minutes so run it only on CI
-var func = process.env.CI ? describe : describe.skip;
+var func = process.env.CLI_TEST ? describe : describe.skip;
 
 func('App and plugin templates integration', function () {
     this.timeout(200000);

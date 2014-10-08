@@ -15,19 +15,19 @@
   "license": "MIT",
   "dependencies": {
     "async": "^0.9.0",
-    "colors": "^0.6.2",
+    "colors": "^1.0.2",
     "commander": "^2.2.0",
     "debug": "^2.0.0",
     "ejs": "^1.0.0",
     "express": "^4.9.5",
+    "installable-web-manager": "^0.0.2",
     "lodash": "^2.4.1",
     "matchdep": "^0.3.0",
     "mkdirp": "^0.5.0",
     "ncp": "^0.5.1",
-    "npm": "^2.0.0",
-    "npm-scrap": "0.0.4",
-    "installable-web-manager": "0.0.2",
-    "webpack": "1.4.4"
+    "npm": "^2.1.3",
+    "npm-scrap": "^0.0.4",
+    "webpack": "^1.4.5"
   },
   "devDependencies": {
     "chai": "^1.9.2",

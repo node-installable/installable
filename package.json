@@ -13,6 +13,14 @@
   ],
   "author": "Nikos Gereoudakis <nikos@gereoudakis.me>",
   "license": "MIT",
+  "homepage": "https://github.com/node-installable/installable",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/node-installable/installable.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/node-installable/installable/issues"
+  },
   "dependencies": {
     "async": "^0.9.0",
     "colors": "^1.0.2",

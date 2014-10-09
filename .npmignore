@@ -3,5 +3,5 @@ tmp
 coverage
 node_modules
 npm-debug.log
-spec
+./spec
 .git
